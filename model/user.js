@@ -12,7 +12,7 @@ const userSchema = new Schema({
             type: String,
             required: true
         },
-        last:  {
+        last: {
             type: String,
             required: true
         },
@@ -31,7 +31,7 @@ const userSchema = new Schema({
     location: String
 });
 
-userSchema.methods.withoutPassword = function() {
+userSchema.methods.withoutPassword = function () {
     let user = this.toObject();
     delete user.password;
     return user;
