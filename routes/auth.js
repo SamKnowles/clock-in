@@ -1,6 +1,7 @@
+const express = require('express');
 const user = require('../model/user');
 const authRouter = express.Router();
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
 authRouter.post('signup', (req, res) => {
     user.findOne({username: req.body.username}, (err, existingUser) => {
@@ -27,3 +28,5 @@ authRouter.post("/login", (req, res) => {
         return res.send({token: token, user: user.toObject(), success: true})
     });
 });
+
+module.exports = authRouter;
